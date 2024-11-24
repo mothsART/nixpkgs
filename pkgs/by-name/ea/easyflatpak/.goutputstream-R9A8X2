@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     owner = "imikado";
     repo = "dupotEasyFlatpak";
     rev = "2.19.0";
-    hash = "sha256-XzQySWqtWPbgEOy8OpUM+z2pAS3/SjRTQwFJ35F0krg=";
+    sha256 = "1f4jfj8xyj818d9k8jpz5l0sjggv1jakmg7c23hgcn5dd94k4d2z";
   };
 
   buildInputs = [
@@ -21,8 +21,7 @@ stdenv.mkDerivation {
   ];
 
   buildPhase = ''
-	flutter config --no-analytics
-	flutter config --no-cli-animations
+	flutter pub get
     flutter build linux
   '';
 
@@ -37,6 +36,6 @@ stdenv.mkDerivation {
     changelog = "https://github.com/imikado/dupotEasyFlatpak/releases/tag/${version}";
     maintainers = with maintainers; [ mothsart ];
     license = with licenses; [ gpl2Plus ];
-    mainProgram = "easyflatpak";
+    mainProgram = "easy-flatpak";
   };
 }
